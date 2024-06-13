@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.EntityLayer", "Topic.EntityLayer\Topic.EntityLayer.csproj", "{5AEC89DD-6233-47DE-83C4-9F905F113448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.EntityLayer", "Topic.EntityLayer\Topic.EntityLayer.csproj", "{5AEC89DD-6233-47DE-83C4-9F905F113448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.BusinnesLayer", "Topic.BusinnesLayer\Topic.BusinnesLayer.csproj", "{E1771297-8C35-4E22-9972-42BE703B7808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.BusinnesLayer", "Topic.BusinnesLayer\Topic.BusinnesLayer.csproj", "{E1771297-8C35-4E22-9972-42BE703B7808}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.DataAccsesLayer", "Topic.DataAccsesLayer\Topic.DataAccsesLayer.csproj", "{A549AD9B-AC0B-4502-9EC5-F409FEF22903}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.DataAccsesLayer", "Topic.DataAccsesLayer\Topic.DataAccsesLayer.csproj", "{A549AD9B-AC0B-4502-9EC5-F409FEF22903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.DtoLayer", "Topic.DtoLayer\Topic.DtoLayer.csproj", "{DC8419D9-8189-454D-92A8-03E6AE41B88F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.DtoLayer", "Topic.DtoLayer\Topic.DtoLayer.csproj", "{DC8419D9-8189-454D-92A8-03E6AE41B88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.API", "Topic.API\Topic.API.csproj", "{9F3703B7-D7C0-45AA-BAF5-601D2BD5EC34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.API", "Topic.API\Topic.API.csproj", "{9F3703B7-D7C0-45AA-BAF5-601D2BD5EC34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic.WebUI", "Topic.WebUI\Topic.WebUI.csproj", "{B8343A69-5425-4D4D-9935-B859D47CDCDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topic.WebUI", "Topic.WebUI\Topic.WebUI.csproj", "{B8343A69-5425-4D4D-9935-B859D47CDCDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

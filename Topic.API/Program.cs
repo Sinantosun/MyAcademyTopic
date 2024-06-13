@@ -1,7 +1,26 @@
+using Microsoft.AspNetCore.WebSockets;
+using System.Reflection;
+using Topic.BusinnesLayer.Abstract;
+using Topic.BusinnesLayer.Concrete;
+using Topic.DataAccsesLayer.Abstract;
+using Topic.DataAccsesLayer.Concrete;
 using Topic.DataAccsesLayer.Context;
+using Topic.DataAccsesLayer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddScoped<IBlogDal, EFBlogDal>();
+builder.Services.AddScoped<IBlogService, BlogManager>();
+
+builder.Services.AddScoped<ICategoryDal, EFCategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
+
+builder.Services.AddScoped<IManuelDal, EFManuelDal>();
+builder.Services.AddScoped<IManuelService, ManuelManager>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped(typeof(IGenericDal<>),typeof(GenericRepository<>));
 // Add services to the container.
 builder.Services.AddDbContext<TopicContext>();
 builder.Services.AddControllers();

@@ -11,7 +11,7 @@ namespace Topic.DataAccsesLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        private readonly TopicContext _topicContext;
+        protected readonly TopicContext _topicContext;
 
         public GenericRepository(TopicContext topicContext)
         {

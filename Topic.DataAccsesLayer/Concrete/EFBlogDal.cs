@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,11 @@ namespace Topic.DataAccsesLayer.Concrete
     {
         public EFBlogDal(TopicContext topicContext) : base(topicContext)
         {
+        }
+
+        public List<Blog> GetBlogsWithCategories()
+        {
+            return _topicContext.Blogs.Include(t => t.Category).ToList();
         }
     }
 }
