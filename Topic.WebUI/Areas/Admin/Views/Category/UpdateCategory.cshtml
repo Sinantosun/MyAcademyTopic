@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+@model UpdateCategoryDto
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategoriler Alanı</h4>
+            <p class="card-description">
+               Kategori güncelle
+            </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="exampleInputName1" asp-for="CategoryID" placeholder="Name">
+                    <label for="exampleInputName1">Kategori Adı</label>
+                    <input type="text" class="form-control" id="exampleInputName1" asp-for="CategoryName" placeholder="Name">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
