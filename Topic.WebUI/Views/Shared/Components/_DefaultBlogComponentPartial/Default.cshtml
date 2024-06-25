@@ -1,0 +1,77 @@
+﻿@using Topic.WebUI.Dtos.BlogDtos
+@using Topic.WebUI.Dtos.CategoryDtos
+@model List<ResultBlogDto>
+@{
+    int count = 0;
+    int count3 = 0;
+}
+<section class="explore-section section-padding" id="section_2">
+    <div class="container">
+        <div class="col-12 text-center">
+            <h2 class="mb-4">Blogları Keşfet</h2>
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                @foreach (var item in ViewBag.Categories as List<ResultCategoryDto>)
+                {
+                    count3++;
+                    <li class="nav-item " role="presentation">
+                        <button class="nav-link @(count3==1?"active":"")" id="@item.CategoryName-tab" data-bs-toggle="tab" data-bs-target="#@item.CategoryName-tab-pane" type="button" role="tab" aria-controls="@item.CategoryName-tab-pane" aria-selected="true">@item.CategoryName</button>
+
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="tab-content" id="myTabContent">
+                    @foreach (var item in Model)
+                    {
+                        count++;
+
+                        <div class="tab-pane fade @(count==1?"show active":"")" id="@item.Category.CategoryName-tab-pane" role="tabpanel" aria-labelledby="@item.Category.CategoryName-tab" tabindex="0">
+                            <div class="row">
+                                @foreach (var item2 in Model.Where(t => t.Category.CategoryName == item.Category.CategoryName))
+                                {
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block bg-white shadow-lg">
+                                            <a href="topics-detail.html">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <h5 class="mb-2">@item2.Title </h5>
+
+                                                        <p class="mb-0">@item2.ShortDescription</p>
+                                                    </div>
+
+                                                    <span class="badge bg-design rounded-pill ms-auto"></span>
+                                                </div>
+
+                                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
