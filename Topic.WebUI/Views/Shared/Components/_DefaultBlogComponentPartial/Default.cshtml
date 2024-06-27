@@ -44,9 +44,9 @@
                             <div class="row">
                                 @foreach (var item2 in Model.Where(t => t.Category.CategoryName == item.Category.CategoryName))
                                 {
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-5 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
+                                            <a href="/Blog/GetBlogsDetails/@item.BlogID">
                                                 <div class="d-flex">
                                                     <div>
                                                         <h5 class="mb-2">@item2.Title </h5>

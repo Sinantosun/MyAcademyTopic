@@ -1,0 +1,31 @@
+﻿@model List<ResultCategoryDto>
+<section class="featured-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                    <div class="custom-block bg-white shadow-lg">
+                        <a href="/Blog/GetBlogsByCategory/@item.CategoryID">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="mb-2">@item.CategoryName</h5>
+
+                                    <p class="mb-0">@item.Description</p>
+                                </div>
+
+                                <span class="badge bg-design rounded-pill ms-auto">14</span>
+                            </div>
+
+                            <img src="~/Templates/TopicListing-1.0.0/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                        </a>
+                    </div>
+                </div>
+            }
+          
+
+            
+
+        </div>
+    </div>
+</section>

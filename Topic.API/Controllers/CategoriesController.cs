@@ -20,6 +20,14 @@ namespace Topic.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet("GetActiveCategories")]
+        public IActionResult GetActiveCategories()
+        {
+            var values = _categoryService.TGetListByFilter(x => x.Status == true);
+            return Ok(values);
+        }
+
+
         [HttpGet]
         public IActionResult GetAllCategories()
         {

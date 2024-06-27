@@ -1,0 +1,104 @@
+﻿@using Topic.WebUI.Dtos.BlogDtos
+@model List<ResultBlogDto>
+@{
+    ViewData["Title"] = "GetBlogsByCategory";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<header class="site-header d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Default/Index">Ana Sayfa</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Bloglar</li>
+                    </ol>
+                </nav>
+
+                <h2 class="text-white">Bloglar</h2>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center">
+                <h3 class="mb-4">Blog Listesi</h3>
+            </div>
+
+            <div class="col-lg-8 col-12 mt-3 mx-auto">
+                @foreach (var item in Model)
+                {
+                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                        <div class="d-flex">
+                            <img src="@item.Image1" class="custom-block-image img-fluid" alt="">
+
+                            <div class="custom-block-topics-listing-info d-flex">
+                                <div>
+                                    <h5 class="mb-2">@item.Title</h5>
+
+                                    <p class="mb-0">@item.LongDescription</p>
+
+                                    <a href="/Blog/GetBlogsDetails/@item.BlogID" class="btn custom-btn mt-3 mt-lg-4">Detay</a>
+                                </div>
+
+                                <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+
+             
+            </div>
+
+            <div class="col-lg-12 col-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">Prev</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">4</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">5</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,44 @@
+﻿@using Topic.WebUI.Dtos.ManuelDtos
+@model List<ResultManuelDto>
+<section class="timeline-section section-padding" id="section_3">
+    <div class="section-overlay"></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 text-center">
+                <h2 class="text-white mb-4">How does it work?</h2>
+            </div>
+
+            <div class="col-lg-10 col-12 mx-auto">
+                <div class="timeline-container">
+                    <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                        <div class="list-progress">
+                            <div class="inner"></div>
+                        </div>
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <h4 class="text-white mb-3">@item.Title</h4>
+
+                                <p class="text-white">@item.Description</p>
+
+                                <div class="icon-holder">
+                                    <i class="@item.Icon"></i>
+                                </div>
+                            </li>
+                        }        
+                   
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-12 text-center mt-5">
+                <p class="text-white">
+                    Daha fazlası için
+                    <a href="#" class="btn custom-btn custom-border-btn ms-3">Youtube kanalımıza göz atın</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

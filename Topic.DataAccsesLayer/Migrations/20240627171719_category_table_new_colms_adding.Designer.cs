@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Topic.DataAccsesLayer.Context;
 
@@ -10,9 +11,11 @@ using Topic.DataAccsesLayer.Context;
 namespace Topic.DataAccsesLayer.Migrations
 {
     [DbContext(typeof(TopicContext))]
-    partial class TopicContextModelSnapshot : ModelSnapshot
+    [Migration("20240627171719_category_table_new_colms_adding")]
+    partial class category_table_new_colms_adding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

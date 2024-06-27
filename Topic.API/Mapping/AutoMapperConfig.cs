@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Topic.DtoLayer.BlogDtos;
 using Topic.DtoLayer.CategoryDtos;
+using Topic.DtoLayer.ManuelDtos;
 using Topic.EntityLayer.Entities;
 
 namespace Topic.API.Mapping
@@ -16,6 +17,11 @@ namespace Topic.API.Mapping
             CreateMap<Blog, CreateBlogDto>().ReverseMap();
             CreateMap<Blog, UpdateBlogDto>().ReverseMap();
             CreateMap<Blog, ResultBlogDto>().ReverseMap();
+
+
+            CreateMap<Manuel, ResultManuelDto>().ReverseMap();
+            CreateMap<Manuel, CreateManuelDto>().ReverseMap();
+            CreateMap<Manuel, UpdateManuelDto>().ReverseMap();
         }
     }
 }

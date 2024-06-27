@@ -27,10 +27,18 @@ namespace Topic.API.Controllers
             return Ok(categories);
         }
 
+        [HttpGet("GetBlogsByCategoryID/{id}")]
+        public IActionResult GetBlogsByCategoryID(int id)
+        {
+            var values = _blogService.TGetBlogsByCategoryId(id);
+            var categories = _mapper.Map<List<ResultBlogDto>>(values);
+            return Ok(categories);
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetblogById(int id)
         {
-            var value = _blogService.TGetById(id);
+            var value = _blogService.TGetBlogWithCategoryById(id);
             var blog = _mapper.Map<ResultBlogDto>(value);
             return Ok(blog);
         }

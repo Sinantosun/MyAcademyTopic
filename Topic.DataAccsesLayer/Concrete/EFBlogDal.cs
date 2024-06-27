@@ -17,9 +17,19 @@ namespace Topic.DataAccsesLayer.Concrete
         {
         }
 
+        public List<Blog> GetBlogsByCategoryId(int id)
+        {
+            return _topicContext.Blogs.Where(x => x.CategoryID == id).ToList();
+        }
+
         public List<Blog> GetBlogsWithCategories()
         {
             return _topicContext.Blogs.Include(t => t.Category).ToList();
+        }
+
+        public Blog GetBlogWithCategoryById(int id)
+        {
+            return _topicContext.Blogs.Include(t => t.Category).FirstOrDefault(x => x.BlogID == id);
         }
     }
 }

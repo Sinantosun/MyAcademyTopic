@@ -10,5 +10,7 @@ namespace Topic.DtoLayer.CategoryDtos
     {
         public string CategoryName { get; set; }
         public bool Status { get; set; }
+        public string Description { get; set; }
+        public string ImageURL { get; set; }
     }
 }
