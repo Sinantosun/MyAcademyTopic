@@ -11,10 +11,25 @@
             <p class="card-description">
               Yeni kategori Oluştur
             </p>
-            <form class="forms-sample" method="post">
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Kategori Adı</label>
-                    <input type="text" class="form-control" id="exampleInputName1" asp-for="CategoryName" placeholder="Name">
+                    <input type="text" class="form-control" id="exampleInputName1" asp-for="CategoryName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName2">Açıklama</label>
+                    <textarea  class="form-control" id="exampleInputName2" asp-for="Description" rows="5" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName3">Görsel</label>
+                    <input type="file" class="form-control" id="exampleInputName3" asp-for="formFile" />
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName4">Durumunu Aktif Olarak Kaydet</label>
+            
+                    <input type="checkbox"  id="exampleInputName4" checked asp-for="Status" /><br />
+                    <small>Eğer bu alan işaretlenmesse kategori pasif halde eklenir site içinde görünmez.</small>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
             </form>

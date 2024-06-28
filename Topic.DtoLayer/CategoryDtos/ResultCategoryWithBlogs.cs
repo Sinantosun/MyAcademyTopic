@@ -1,21 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Topic.WebUI.Dtos.CategoryDtos
+namespace Topic.DtoLayer.CategoryDtos
 {
-    public class CreateCategoryDto
+    public class ResultCategoryWithBlogs
     {
+        public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
         public string ImageURL { get; set; }
 
-
-        public IFormFile formFile { get; set; }
-
+        public int BlogCount { get; set; }
     }
 }

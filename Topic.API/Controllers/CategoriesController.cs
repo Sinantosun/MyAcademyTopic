@@ -23,15 +23,28 @@ namespace Topic.API.Controllers
         [HttpGet("GetActiveCategories")]
         public IActionResult GetActiveCategories()
         {
-            var values = _categoryService.TGetListByFilter(x => x.Status == true);
-            return Ok(values);
+            var values = _categoryService.TGetActiveCategoriesWithBlogs();
+            List<ResultCategoryWithBlogs> result = new List<ResultCategoryWithBlogs>();
+            foreach (var item in values)
+            {
+                result.Add(new ResultCategoryWithBlogs
+                {
+                    BlogCount = item.Blogs.Count,   
+                    CategoryID = item.CategoryID,
+                    CategoryName = item.CategoryName,
+                    Description = item.Description,
+                    ImageURL = item.ImageURL,
+                    Status = item.Status,
+                });
+            }
+            return Ok(result);
         }
 
 
         [HttpGet]
         public IActionResult GetAllCategories()
         {
-            var values = _categoryService.TGetList();
+            var values = _categoryService.TGetListByFilter(t=>t.Status==true);
             var categories = _mapper.Map<List<ResultCategoryDto>>(values);
             return Ok(categories);
         }
@@ -62,7 +75,15 @@ namespace Topic.API.Controllers
         [HttpPut]
         public IActionResult UpdateCategory(UpdateCategoryDto model)
         {
-            var category = _mapper.Map<Category>(model);
+            var category = _categoryService.TGetById(model.CategoryID);
+            category.Status = model.Status;
+
+            if (model.CategoryName != null)
+            {
+                category.ImageURL = model.ImageURL;
+            }
+            category.CategoryName = model.CategoryName;
+            category.Description = model.Description;
             _categoryService.TUpdate(category);
             return Ok("Kayıt Güncellendi");
         }

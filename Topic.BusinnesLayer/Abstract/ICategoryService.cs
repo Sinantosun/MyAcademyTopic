@@ -9,5 +9,6 @@ namespace Topic.BusinnesLayer.Abstract
 {
     public interface ICategoryService : IGenericService<Category>
     {
+        List<Category> TGetActiveCategoriesWithBlogs();
     }
 }

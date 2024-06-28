@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.WebSockets;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Topic.BusinnesLayer.Abstract;
 using Topic.BusinnesLayer.Concrete;
 using Topic.DataAccsesLayer.Abstract;
@@ -23,7 +24,10 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped(typeof(IGenericDal<>),typeof(GenericRepository<>));
 // Add services to the container.
 builder.Services.AddDbContext<TopicContext>();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(opts =>
+{
+    opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

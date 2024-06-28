@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.IO;
 using System.Text;
+using Topic.WebUI.DAL;
 using Topic.WebUI.Dtos.CategoryDtos;
 
 namespace Topic.WebUI.Areas.Admin.Controllers
@@ -36,12 +38,16 @@ namespace Topic.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            var jsonData = JsonConvert.SerializeObject(createCategoryDto);
+            string path = "/Category/";
+            string fileName = ImageProcess.SetFileName(Path.GetExtension(createCategoryDto.formFile.FileName));
+            createCategoryDto.ImageURL = path + fileName;
 
+            var jsonData = JsonConvert.SerializeObject(createCategoryDto);
             StringContent str = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await _httpClient.PostAsync("https://localhost:7074/api/Categories", str);
             if (responseMessage.IsSuccessStatusCode)
             {
+                ImageProcess.CreateImage(createCategoryDto.formFile, path, fileName);
                 return RedirectToAction("Index");
             }
             return View();
@@ -75,6 +81,10 @@ namespace Topic.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto model)
         {
+
+
+
+
             var jsonData = JsonConvert.SerializeObject(model);
 
             StringContent str = new StringContent(jsonData, Encoding.UTF8, "application/json");
