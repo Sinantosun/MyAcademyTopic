@@ -11,8 +11,7 @@ namespace Topic.WebUI.DAL
             var stream = new FileStream(location, FileMode.Create);
             await req.CopyToAsync(stream);
 
-            stream.Dispose();
-            stream.Close();
+         
         
         }
 

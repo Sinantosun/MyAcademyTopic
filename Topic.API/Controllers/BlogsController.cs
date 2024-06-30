@@ -80,8 +80,26 @@ namespace Topic.API.Controllers
         [HttpPut]
         public IActionResult Updateblog(UpdateBlogDto model)
         {
-            var blog = _mapper.Map<Blog>(model);
-            _blogService.TUpdate(blog);
+            var values = _blogService.TGetById(model.BlogID);
+            values.ShortDescription = model.ShortDescription;
+            values.LongDescription = model.LongDescription;
+            values.Title = model.Title;
+            values.CategoryID = model.CategoryID;
+            if (!string.IsNullOrEmpty(model.CoverImageUrl))
+            {
+                values.CoverImageUrl = model.CoverImageUrl;
+            }
+
+            if (!string.IsNullOrEmpty(model.Image1))
+            {
+                values.Image1 = model.Image1;
+            }
+
+            if (!string.IsNullOrEmpty(model.Image2))
+            {
+                values.Image2 = model.Image2;
+            }
+            _blogService.TUpdate(values);
             return Ok("Kayıt Güncellendi");
         }
     }

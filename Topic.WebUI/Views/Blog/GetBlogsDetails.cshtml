@@ -3,7 +3,7 @@
     ViewData["Title"] = "GetBlogsDetails";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
   <header class="site-header d-flex flex-column justify-content-center align-items-center">
                 <div class="container">
                     <div class="row justify-content-center align-items-center">
@@ -45,6 +45,9 @@
                             <h3 class="mb-4">@Model.Title</h3>
 
                             <p>@Model.ShortDescription</p>
+                            <br />
+
+                            <p>@Html.Raw(Model.LongDescription)</p>
 
                          
 

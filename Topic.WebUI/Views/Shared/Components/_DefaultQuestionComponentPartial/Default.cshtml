@@ -1,0 +1,49 @@
+﻿@using Topic.WebUI.Dtos.QuestionDtos
+@model List<ResultQuestionDto>
+@{
+    int count = 0;
+}
+<section class="faq-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <h2 class="mb-4">Sıkça sorulan sorular</h2>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="col-lg-5 col-12">
+                <img src="~/Templates/TopicListing-1.0.0/images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+            </div>
+
+            <div class="col-lg-6 col-12 m-auto">
+                <div class="accordion" id="accordionExample">
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading_@count">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@count" aria-expanded="true" aria-controls="collapse_@count">
+                                @item.Title
+                                </button>
+                            </h2>
+
+                            <div id="collapse_@count" class="accordion-collapse collapse" aria-labelledby="heading_@count" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    @Html.Raw(@item.Descripton)
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                     
+                    }
+                   
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

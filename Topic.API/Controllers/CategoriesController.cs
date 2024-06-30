@@ -40,6 +40,13 @@ namespace Topic.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetCategories")]
+        public IActionResult GetCategories()
+        {
+            var values = _categoryService.TGetList();
+            return Ok(values);
+        }
+
 
         [HttpGet]
         public IActionResult GetAllCategories()
@@ -78,12 +85,13 @@ namespace Topic.API.Controllers
             var category = _categoryService.TGetById(model.CategoryID);
             category.Status = model.Status;
 
-            if (model.CategoryName != null)
+            if (model.ImageURL != null)
             {
                 category.ImageURL = model.ImageURL;
             }
             category.CategoryName = model.CategoryName;
             category.Description = model.Description;
+
             _categoryService.TUpdate(category);
             return Ok("Kayıt Güncellendi");
         }

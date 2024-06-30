@@ -20,7 +20,7 @@ namespace Topic.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var httpResponseMessage = await _httpClient.GetAsync("https://localhost:7074/api/Categories");
+            var httpResponseMessage = await _httpClient.GetAsync("https://localhost:7074/api/Categories/GetCategories");
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
@@ -40,7 +40,7 @@ namespace Topic.WebUI.Areas.Admin.Controllers
         {
             string path = "/Category/";
             string fileName = ImageProcess.SetFileName(Path.GetExtension(createCategoryDto.formFile.FileName));
-            createCategoryDto.ImageURL = path + fileName;
+            createCategoryDto.ImageURL = "/Images/" + path + fileName;
 
             var jsonData = JsonConvert.SerializeObject(createCategoryDto);
             StringContent str = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -81,9 +81,14 @@ namespace Topic.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto model)
         {
-
-
-
+            string path = "/Category/";
+            string fileName = "";
+            if (model.ImageFile != null)
+            {
+                path = "/Category/";
+                fileName = ImageProcess.SetFileName(Path.GetExtension(model.ImageFile.FileName));
+                model.ImageURL = "/Images" + path + fileName;
+            }
 
             var jsonData = JsonConvert.SerializeObject(model);
 
@@ -91,6 +96,11 @@ namespace Topic.WebUI.Areas.Admin.Controllers
             var responseMessage = await _httpClient.PutAsync("https://localhost:7074/api/Categories", str);
             if (responseMessage.IsSuccessStatusCode)
             {
+                if (model.ImageFile != null)
+                {
+                    ImageProcess.CreateImage(model.ImageFile, path, fileName);
+                }
+
                 return RedirectToAction("Index");
             }
             return View();

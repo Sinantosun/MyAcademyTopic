@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Topic.DataAccsesLayer.Context;
 
@@ -10,9 +11,11 @@ using Topic.DataAccsesLayer.Context;
 namespace Topic.DataAccsesLayer.Migrations
 {
     [DbContext(typeof(TopicContext))]
-    partial class TopicContextModelSnapshot : ModelSnapshot
+    [Migration("20240630144832_migration_add_new_table_question")]
+    partial class migration_add_new_table_question
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

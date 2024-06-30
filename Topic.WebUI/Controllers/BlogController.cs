@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Topic.WebUI.Dtos.BlogDtos;
+using X.PagedList;
 
 namespace Topic.WebUI.Controllers
 {
@@ -13,16 +14,21 @@ namespace Topic.WebUI.Controllers
             _httpClient = httpClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int pageNumber = 1)
         {
-            return View();
+            var values = await _httpClient.GetFromJsonAsync<List<ResultBlogDto>>("blogs");
+            if (values != null)
+            {
+                ViewBag.BlogCount = values.Count();
+            }
+            return View(values.ToPagedList(pageNumber, 5));
         }
 
-        public async Task<IActionResult> GetBlogsByCategory(int id)
+        public async Task<IActionResult> GetBlogsByCategory(int id,int pageNumber=1)
         {
 
             var values = await _httpClient.GetFromJsonAsync<List<ResultBlogDto>>($"blogs/GetBlogsByCategoryID/{id}");
-            return View(values);
+            return View(values.ToPagedList(pageNumber,5));
         }
 
 
@@ -31,6 +37,6 @@ namespace Topic.WebUI.Controllers
             var value = await _httpClient.GetFromJsonAsync<ResultBlogDto>($"Blogs/{id}");
             return View(value);
         }
-          
+
     }
 }

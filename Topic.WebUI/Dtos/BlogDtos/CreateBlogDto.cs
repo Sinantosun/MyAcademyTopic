@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,11 @@ namespace Topic.WebUI.Dtos.BlogDtos
         public string Image2 { get; set; }
 
         public int CategoryID { get; set; }
+
+
+
+        public IFormFile CoverPhotoFile { get; set; }
+        public IFormFile Image1File { get; set; }
+        public IFormFile Image2File { get; set; }
     }
 }

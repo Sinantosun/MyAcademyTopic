@@ -20,6 +20,9 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IManuelDal, EFManuelDal>();
 builder.Services.AddScoped<IManuelService, ManuelManager>();
 
+builder.Services.AddScoped<IQuestionDal, EFQuestionDal>();
+builder.Services.AddScoped<IQuestionService, QuestionManager>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped(typeof(IGenericDal<>),typeof(GenericRepository<>));
 // Add services to the container.

@@ -20,14 +20,19 @@ namespace Topic.WebUI.Controllers
         }
         public async Task<JsonResult> AutoComplete(string keyword)
         {
-         
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7074/api/Blogs/GetBlogsForAutoComplate/{keyword}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<List<ResultBlogForSearchDto>>(jsonData);
+
                 return Json(result);
+
+
+
+
             }
             return Json("");
         }
