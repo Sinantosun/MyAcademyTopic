@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Topic.DataAccsesLayer.Abstract;
 using Topic.DataAccsesLayer.Context;
 using Topic.DataAccsesLayer.Repositories;
+using Topic.DtoLayer.BlogDtos;
 using Topic.EntityLayer.Entities;
 
 namespace Topic.DataAccsesLayer.Concrete
@@ -17,9 +18,21 @@ namespace Topic.DataAccsesLayer.Concrete
         {
         }
 
+        public List<Blog> GetBlogBySearchKeyword(string keyword)
+        {
+            return _topicContext.Blogs.Include(t => t.Category).Where(x => x.Category.CategoryName.Contains(keyword) || x.Title.Contains(keyword)).ToList();
+        }
+
         public List<Blog> GetBlogsByCategoryId(int id)
         {
             return _topicContext.Blogs.Where(x => x.CategoryID == id).ToList();
+        }
+
+        public List<ResultBlogForSearchDto> GetBlogsNameForAutoComplate(string keyword)
+        {
+
+            var values = _topicContext.Blogs.Where(x => x.Title.StartsWith(keyword)).Select(item => new ResultBlogForSearchDto { label = item.Title }).ToList();
+            return values;
         }
 
         public List<Blog> GetBlogsWithCategories()
@@ -31,5 +44,7 @@ namespace Topic.DataAccsesLayer.Concrete
         {
             return _topicContext.Blogs.Include(t => t.Category).FirstOrDefault(x => x.BlogID == id);
         }
+
+
     }
 }

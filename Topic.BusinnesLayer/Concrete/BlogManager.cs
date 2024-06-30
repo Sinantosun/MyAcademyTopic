@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Topic.BusinnesLayer.Abstract;
 using Topic.DataAccsesLayer.Abstract;
+using Topic.DtoLayer.BlogDtos;
 using Topic.EntityLayer.Entities;
 
 namespace Topic.BusinnesLayer.Concrete
@@ -21,9 +22,19 @@ namespace Topic.BusinnesLayer.Concrete
             _blogDal = blogDal;
         }
 
+        public List<Blog> TGetBlogBySearchKeyword(string keyword)
+        {
+            return _blogDal.GetBlogBySearchKeyword(keyword);
+        }
+
         public List<Blog> TGetBlogsByCategoryId(int id)
         {
           return _blogDal.GetBlogsByCategoryId(id);
+        }
+
+        public List<ResultBlogForSearchDto> TGetBlogsNameForAutoComplate(string keyword)
+        {
+            return _blogDal.GetBlogsNameForAutoComplate(keyword);
         }
 
         public List<Blog> TGetBlogsWithCategories()

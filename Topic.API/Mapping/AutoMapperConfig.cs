@@ -17,6 +17,7 @@ namespace Topic.API.Mapping
             CreateMap<Blog, CreateBlogDto>().ReverseMap();
             CreateMap<Blog, UpdateBlogDto>().ReverseMap();
             CreateMap<Blog, ResultBlogDto>().ReverseMap();
+            CreateMap<Blog, ResultBlogForSearchDto>().ReverseMap();
 
 
             CreateMap<Manuel, ResultManuelDto>().ReverseMap();

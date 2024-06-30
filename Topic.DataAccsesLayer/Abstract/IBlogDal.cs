@@ -1,4 +1,5 @@
 ﻿
+using Topic.DtoLayer.BlogDtos;
 using Topic.EntityLayer.Entities;
 
 namespace Topic.DataAccsesLayer.Abstract
@@ -10,6 +11,16 @@ namespace Topic.DataAccsesLayer.Abstract
         List<Blog> GetBlogsByCategoryId(int id);
 
         Blog GetBlogWithCategoryById(int id);
+
+        List<Blog> GetBlogBySearchKeyword(string keyword);
+
+
+        List<ResultBlogForSearchDto> GetBlogsNameForAutoComplate(string keyword);
+
+ 
+
+
+
 
     }
 }

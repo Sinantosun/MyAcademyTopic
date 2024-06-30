@@ -1,0 +1,46 @@
+﻿<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+
+
+<script>
+    $(function () {
+        $("#keyword").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '/Default/AutoComplete/',
+                    data: { "keyword": request.term },
+                    type: "POST",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return item;
+                        }))
+                    },
+                });
+            }
+        });
+    });
+</script>
+
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12 mx-auto">
+                <h1 class="text-white text-center">Keşfet. Öğren. Eğlen</h1>
+                <h6 class="text-center">İlgi duyduğunuz blogları keşfedin eğlenlenin öğrenin.</h6>
+                <form method="post" asp-action="Index" asp-controller="search" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bi-search" id="basic-addon1">
+                        </span>
+                        <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Kategori,Blog Ara.." aria-label="Search">
+                        <button type="submit" class="form-control">Ara</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>

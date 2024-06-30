@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Topic.BusinnesLayer.Abstract;
 using Topic.DtoLayer.BlogDtos;
 using Topic.EntityLayer.Entities;
+using X.PagedList;
 
 namespace Topic.API.Controllers
 {
@@ -25,6 +26,24 @@ namespace Topic.API.Controllers
             var values = _blogService.TGetBlogsWithCategories();
             var categories = _mapper.Map<List<ResultBlogDto>>(values);
             return Ok(categories);
+        }
+
+        [HttpGet("GetBlogsByKeyword/{keyword}")]
+        public IActionResult GetBlogsByKeyword(string keyword)
+        {
+            var values = _blogService.TGetBlogBySearchKeyword(keyword);
+            return Ok(values);
+        }
+
+        [HttpGet("GetBlogsForAutoComplate/{keyword}")]
+        public IActionResult GetBlogsForAutoComplate(string keyword)
+        {
+            var values = _blogService.TGetBlogsNameForAutoComplate(keyword).Select(item => new ResultBlogForSearchDto
+            {
+                label = item.label,
+            });
+
+            return Ok(values);
         }
 
         [HttpGet("GetBlogsByCategoryID/{id}")]

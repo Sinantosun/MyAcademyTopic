@@ -32,7 +32,7 @@
                             <td><img src="@item.CoverImageUrl" /></td>
                             <td>@item.Title</td>
                             <td>@item.Category.CategoryName</td>
-                            <td>@item.ShortDescription</td>
+                            <td>@(item.ShortDescription.Length>=30?item.ShortDescription.Substring(0,30) + "...":item.ShortDescription)</td>
                             <td><a asp-action="DeleteBlog" asp-route-id="@item.BlogID" class="btn btn-outline-danger"> <i class="typcn typcn-trash"></i> Sil</a></td>
                             <td><a asp-action="UpdateBlog" asp-route-id="@item.BlogID" class="btn btn-outline-success"> <i class="typcn typcn-pen"></i> Güncelle</a></td>
                         </tr>

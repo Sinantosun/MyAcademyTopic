@@ -22,7 +22,6 @@ namespace Topic.WebUI.Controllers
         {
 
             var values = await _httpClient.GetFromJsonAsync<List<ResultBlogDto>>($"blogs/GetBlogsByCategoryID/{id}");
-
             return View(values);
         }
 
