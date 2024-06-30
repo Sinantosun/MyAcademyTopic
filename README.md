@@ -40,28 +40,28 @@ Api tarafında Silme,Güncelleme Ekleme, Listleme, Id değerine göre getirme ve
 
 ![image04](https://github.com/Sinantosun/MyAcademyTopic/assets/145317724/0fd6fc97-66e1-40c6-899f-3b1169723798)
 
-📌 Burada yayınlanan bütün bloglar yer almaktadır
-📌 api isteğini X.PagedList şekline dönüştürüp her sayfa için 5 bloğun gelmesi sağlanmıştır.
+📌 Burada yayınlanan bütün bloglar yer almaktadır. <br>
+📌 api isteğini X.PagedList şekline dönüştürüp her sayfa için 5 bloğun gelmesi sağlanmıştır. <br>
 
 <h1>Kategorilerin Listesi</h1>
 
 ![image05](https://github.com/Sinantosun/MyAcademyTopic/assets/145317724/11e0e4b5-482a-4f88-8203-d1ac0222b48b)
 
-📌 Burada yayınlanan bütün kategoriler yer almaktadır
+📌 Burada yayınlanan bütün kategoriler yer almaktadır. <br>
 📌 daha fazlası butonu aracığıyla bu kategoriye ait bloglar listelenmektedir.
 
 <h1>Bloğa ait detay sayfası</h1>
 
 ![image06](https://github.com/Sinantosun/MyAcademyTopic/assets/145317724/6f32bdc2-8d7f-44f7-a924-e5032e0bdabb)
 
-📌 Burada ilgili bloğun detayları görünür.
+📌 Burada ilgili bloğun detayları görünür. <br>
 📌 Bloglar eklenirken summerNote Textarea kullanımıştır ve bu sayfa içinde apiden gelen uzun açıklama propertysi html raw edilerek blog kayıt edilirken eklenen html kodlarının (yazıların kalın yazılması numaralandırma yazıların altını çizme vb alanların) çalışması sağlanır.
 
 <h1>Admin Dashboard Alanı</h1>
 
 ![image08](https://github.com/Sinantosun/MyAcademyTopic/assets/145317724/0a99dd93-8049-418e-a84f-2ddde1e012de)
 
-📌Bu alanda entiye özgü methodlar api tarafından tüketilmiştir (blogların sayıları bütün kategorilerin sayıları ve sadece aktif olan kategorilerin sayıları)
+📌Bu alanda entiye özgü methodlar api tarafından tüketilmiştir (blogların sayıları bütün kategorilerin sayıları ve sadece aktif olan kategorilerin sayıları) <br>
 📌 Tablo halinde kategorilerin kaç tane bloğa sahip olduğu admin tarafına gösteriliyor.
 
 <h1>Admin Tarafi Blogların Listesi</h1>
