@@ -19,6 +19,8 @@ namespace Topic.BusinnesLayer.Abstract
 
         List<ResultBlogForSearchDto> TGetBlogsNameForAutoComplate(string keyword);
 
+        public int TgetBlogCount();
+
 
     }
 }

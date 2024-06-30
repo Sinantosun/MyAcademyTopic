@@ -23,6 +23,11 @@ namespace Topic.DataAccsesLayer.Concrete
             return _topicContext.Blogs.Include(t => t.Category).Where(x => x.Category.CategoryName.Contains(keyword) || x.Title.Contains(keyword)).ToList();
         }
 
+        public int getBlogCount()
+        {
+            return _topicContext.Blogs.Count();
+        }
+
         public List<Blog> GetBlogsByCategoryId(int id)
         {
             return _topicContext.Blogs.Where(x => x.CategoryID == id).ToList();

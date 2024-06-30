@@ -20,6 +20,16 @@ namespace Topic.API.Controllers
             _blogService = blogService;
             _mapper = mapper;
         }
+
+        [HttpGet("GetBlogCount")]
+        public IActionResult GetBlogCount()
+        {
+            var count = _blogService.TgetBlogCount();
+            return Ok(count);
+        }
+
+
+
         [HttpGet]
         public IActionResult GetAllBlogs()
         {

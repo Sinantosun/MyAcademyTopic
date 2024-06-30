@@ -21,5 +21,15 @@ namespace Topic.DataAccsesLayer.Concrete
         {
             return _topicContext.Categories.Include(f => f.Blogs).Where(t => t.Status == true).ToList();
         }
+
+        public int getActiveCategoryCount()
+        {
+            return _topicContext.Categories.Where(t => t.Status == true).Count();
+        }
+
+        public int getAllCategoryCount()
+        {
+            return _topicContext.Categories.Count();
+        }
     }
 }

@@ -48,6 +48,20 @@ namespace Topic.API.Controllers
         }
 
 
+        [HttpGet("GetAllCategoryCount")]
+        public IActionResult GetAllCategoryCount()
+        {
+            var values = _categoryService.TgetAllCategoryCount();
+            return Ok(values);
+        }
+
+        [HttpGet("GetActiveCategoryCount")]
+        public IActionResult GetActiveCategoryCount()
+        {
+            var values = _categoryService.TgetActiveCategoryCount();
+            return Ok(values);
+        }
+
         [HttpGet]
         public IActionResult GetAllCategories()
         {

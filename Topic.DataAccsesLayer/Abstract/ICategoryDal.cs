@@ -8,6 +8,9 @@ namespace Topic.DataAccsesLayer.Abstract
     {
 
         public List<Category> GetActiveCategoriesWithBlogs();
+
+        int getAllCategoryCount();
+        int getActiveCategoryCount();
       
     }
 }

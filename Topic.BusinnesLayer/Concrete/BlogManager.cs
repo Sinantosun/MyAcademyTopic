@@ -27,6 +27,11 @@ namespace Topic.BusinnesLayer.Concrete
             return _blogDal.GetBlogBySearchKeyword(keyword);
         }
 
+        public int TgetBlogCount()
+        {
+            return _blogDal.getBlogCount();
+        }
+
         public List<Blog> TGetBlogsByCategoryId(int id)
         {
           return _blogDal.GetBlogsByCategoryId(id);

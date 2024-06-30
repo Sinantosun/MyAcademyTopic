@@ -21,5 +21,15 @@ namespace Topic.BusinnesLayer.Concrete
         {
             return _categoryDal.GetActiveCategoriesWithBlogs();
         }
+
+        public int TgetActiveCategoryCount()
+        {
+            return _categoryDal.getActiveCategoryCount();
+        }
+
+        public int TgetAllCategoryCount()
+        {
+            return _categoryDal.getAllCategoryCount();
+        }
     }
 }

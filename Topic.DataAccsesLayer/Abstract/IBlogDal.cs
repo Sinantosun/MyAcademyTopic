@@ -17,6 +17,8 @@ namespace Topic.DataAccsesLayer.Abstract
 
         List<ResultBlogForSearchDto> GetBlogsNameForAutoComplate(string keyword);
 
+        int getBlogCount();
+
  
 
 
